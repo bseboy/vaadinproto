@@ -1,15 +1,13 @@
 package vaadinproto.flow;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.router.Route;
 
-import vaadinproto.wc.PaperSlider;
-import vaadinproto.wc.SvgPiechart;
+import vaadinproto.wc.MosaicButton;
+import vaadinproto.wc.MosaicButtonGroup;
+import vaadinproto.wc.MosaicCode;
+import vaadinproto.wc.MosaicTextInput;
 
 @Route("hello")
 public class Root extends Div {
@@ -18,22 +16,43 @@ public class Root extends Div {
 
 	public Root() {
 		super();
-		setText("Hello World");
-		
-		final PaperSlider slider = new PaperSlider();
-		slider.setValue(50);
-		add(slider);
 
-		final TextField value = new TextField("value");
-		add(value);
+		final MosaicCode code1 = new MosaicCode();
+		code1.setLang("html");
+		code1.setContent("<p>This is a paragraph.</p>");
+		add(code1);
+
 		
-		slider.addValueChangeListener(vce-> {
-			value.setValue(vce.getValue().toString());
+		final MosaicCode code2 = new MosaicCode();
+		code2.setLang("html");
+		code2.setContent("<p>This is a second paragraph.</p>");
+		add(code2);
+		
+		
+		final MosaicButton button1 = button("Button 1");
+		//button1.setIcon("home");
+		add(button1);
+		
+		
+		final MosaicButtonGroup group1 = new MosaicButtonGroup();
+		group1.add(button("Button 2"), button("Button 3"), button("Button 4"));
+		add(group1);
+		
+		final MosaicTextInput text1 = new MosaicTextInput();
+		text1.setLabel("Text Input 1");
+		text1.setRequired(true);
+		text1.addValueChangeListener(vce-> {
+			Notification.show("Text is now : " + vce.getValue());
 		});
-		
-		List<Integer> data = Stream.of(10,15,20,40).collect(Collectors.toList());
-		SvgPiechart chart = new SvgPiechart(200, data);
-		add(chart);
+		add(text1);
+	}
+
+	private MosaicButton button(String text) {
+		final MosaicButton button = new MosaicButton();
+		button.setText(text);
+		button.sizeLarge();
+		button.onClick( ()-> Notification.show(text + " Clicked") );
+		return button;
 	}
 
 }
