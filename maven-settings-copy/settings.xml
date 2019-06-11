@@ -6,17 +6,10 @@
 	
   <servers>
     <server>
-      <username>zmjmrbzuprzxlrqyl4gm57tfnx1c7asaihqjaei2q5g</username>
-      <password>AKCp5cd5L6Vj2SGdPYcWGY5E1kA2XkiJLe4GvpD7o9djzaAhAoJ76bwadbdXypLmJbeFCPdPb</password>
+      <username>??</username>
+      <password>??</password>
       <id>advanced</id>
     </server>
-	<!--
-    <server>
-      <username>zmjmrbzuprzxlrqyl4gm57tfnx1c7asaihqjaei2q5g</username>
-      <password>AKCp5cd5L6Vj2SGdPYcWGY5E1kA2XkiJLe4GvpD7o9djzaAhAoJ76bwadbdXypLmJbeFCPdPb</password>
-      <id>advanced-snapshots</id>
-    </server>
-	-->
   </servers>
   <profiles>
     <profile>
@@ -29,14 +22,6 @@
           <name>libs-release</name>
           <url>https://advancedcsg.jfrog.io/advancedcsg/libs-release</url>
         </repository>
-<!--
-        <repository>
-          <snapshots />
-          <id>advanced-snapshots</id>
-          <name>libs-snapshot</name>
-          <url>https://advancedcsg.jfrog.io/advancedcsg/libs-snapshot</url>
-        </repository>
--->
       </repositories>
       <pluginRepositories>
         <pluginRepository>
@@ -47,14 +32,6 @@
           <name>plugins-release</name>
           <url>https://advancedcsg.jfrog.io/advancedcsg/plugins-release</url>
         </pluginRepository>
-<!--
-        <pluginRepository>
-          <snapshots />
-          <id>advanced-snapshots</id>
-          <name>plugins-release</name>
-          <url>https://advancedcsg.jfrog.io/advancedcsg/plugins-release</url>
-        </pluginRepository>
--->
       </pluginRepositories>
       <id>artifactory</id>
     </profile>
